@@ -1,88 +1,5 @@
-// import { useState } from "react";
-// import { Input } from "../Input/Input";
-
-// export const Signup = ({ onSubmit }) => {
-//   const [form, setForm] = useState({
-//     name: "",
-//     nick: "",
-//     email: "",
-//     password: "",
-//     repeatPassword: "",
-//     gender: "",
-//   });
-
-//   const change = (key) => (e) => setForm({ ...form, [key]: e.target.value });
-
-//   function handleSubmit(e) {
-//     e.preventDefault();
-//     onSubmit(form);
-//   }
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <Input label="Имя" value={form.name} onChange={change("name")} />
-
-//       <Input
-//         label="Ник"
-//         icon={<span>@</span>}
-//         value={form.nick}
-//         onChange={change("nick")}
-//       />
-
-//       <Input
-//         label="Почта"
-//         type="email"
-//         value={form.email}
-//         onChange={change("email")}
-//       />
-
-//       <Input
-//         label="Пароль"
-//         type="password"
-//         value={form.password}
-//         onChange={change("password")}
-//       />
-
-//       <Input
-//         label="Повторите пароль"
-//         type="password"
-//         value={form.repeatPassword}
-//         onChange={change("repeatPassword")}
-//       />
-//       <div>
-//         <p>Пол:</p>
-
-//         <label>
-//           <input
-//             type="radio"
-//             name="gender"
-//             value="female"
-//             checked={form.gender === "female"}
-//             onChange={change("gender")}
-//           />
-//           Женский
-//         </label>
-
-//         <label>
-//           <input
-//             type="radio"
-//             name="gender"
-//             value="male"
-//             checked={form.gender === "male"}
-//             onChange={change("gender")}
-//           />
-//           Мужской
-//         </label>
-//       </div>
-
-//       <button type="submit">Регистрация</button>
-//     </form>
-//   );
-// };
-
-
 import { useState } from "react";
-import { Input } from "../Input/Input";
+import { TextInput } from "../TextInput/TextInput";
 
 export const Signup = ({ onSubmit }) => {
   const [form, setForm] = useState({
@@ -112,41 +29,40 @@ export const Signup = ({ onSubmit }) => {
           Регистрация
         </h2>
 
-        <Input
+        <TextInput
           label="Имя"
           value={form.name}
           onChange={change("name")}
         />
 
-        <Input
+        <TextInput
           label="Ник"
           icon={<span className="text-gray-400">@</span>}
           value={form.nick}
           onChange={change("nick")}
         />
 
-        <Input
+        <TextInput
           label="Почта"
           type="email"
           value={form.email}
           onChange={change("email")}
         />
 
-        <Input
+        <TextInput
           label="Пароль"
           type="password"
           value={form.password}
           onChange={change("password")}
         />
 
-        <Input
+        <TextInput
           label="Повторите пароль"
           type="password"
           value={form.repeatPassword}
           onChange={change("repeatPassword")}
         />
 
-        {/* Пол */}
         <div>
           <p className="mb-2 text-sm font-medium text-gray-700">
             Пол

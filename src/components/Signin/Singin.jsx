@@ -1,9 +1,21 @@
-import { useState } from "react";
-import { Input } from "../";
+import { useEffect, useState } from "react";
+import { INPUTS_CONFIG } from "./constants";
+import { TextInput } from "../";
 
-export const Signin = ({ onSubmit }) => {
+export const Signin = ({ onSubmit, currentField, setCurrentField }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [inputsConfig, setInputConfig] = useState(INPUTS_CONFIG);
+  const [nameField, setNameField] = useState("");
+
+  useEffect(() => {
+    if (nameField === "email") {
+      setInputConfig({ ...inputsConfig, email: currentField });
+    }
+    if (nameField === "password") {
+      setInputConfig({ ...inputsConfig, password: currentField });
+    }
+  }, [currentField]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -14,22 +26,48 @@ export const Signin = ({ onSubmit }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Input
-        label="Email"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-100 px-4">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 space-y-5"
+      >
+        <h2 className="text-2xl font-semibold text-gray-800 text-center">
+          Вход
+        </h2>
+        <TextInput
+          label={inputsConfig.email.label}
+          required={inputsConfig.email.required}
+          size={inputsConfig.email.size}
+          radius={inputsConfig.email.radius}
+          variant={inputsConfig.email.variant}
+          type={inputsConfig.email.type}
+          placeholder={inputsConfig.email.placeholder}
+          value={email}
+          onFocus={() => {
+            setCurrentField(inputsConfig.email);
+            setNameField("email");
+          }}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-      <Input
-        label="Пароль"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <TextInput
+          label={inputsConfig.password.label}
+          required={inputsConfig.password.required}
+          size={inputsConfig.password.size}
+          radius={inputsConfig.password.radius}
+          variant={inputsConfig.password.variant}
+          type={inputsConfig.password.type}
+          placeholder={inputsConfig.password.placeholder}
+          value={password}
+          onFocus={() => {
+            setCurrentField(inputsConfig.password);
+            setNameField("password");
+          }}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-      <button type="submit">Войти</button>
-    </form>
+        <button type="submit">Войти</button>
+      </form>
+    </div>
   );
-}
+};

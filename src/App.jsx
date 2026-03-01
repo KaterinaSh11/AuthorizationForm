@@ -3,8 +3,6 @@ import { MainPage, SigninPage, SignupPage } from "./pages";
 import "./App.css";
 
 export default function App() {
-
-
   return (
     <div className="wrappers">
       <Routes>
