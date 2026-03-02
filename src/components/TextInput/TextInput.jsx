@@ -2,6 +2,7 @@ import { useId } from "react";
 
 export const TextInput = ({
   label,
+  description,
   error,
   required,
   size,
@@ -50,14 +51,14 @@ export const TextInput = ({
         </label>
       )}
 
-      {/* {description && (
+      {description && (
         <div
-          id={descriptionId}
+          id={id}
           className="text-xs text-gray-500 mb-1"
         >
           {description}
         </div>
-      )} */}
+      )}
 
       <div
         className={`

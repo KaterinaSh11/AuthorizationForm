@@ -12,7 +12,8 @@ export const SigninPage = () => {
 
   return (
     <div className="flex min-h-screen">
-      <div className="w-1/2 p-8">
+      <div className="w-[650px] flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-100">
+        {/* <div className="w-1/2 p-8"> */}
         <Signin
           currentField={currentField}
           setCurrentField={setCurrentField}
@@ -21,8 +22,8 @@ export const SigninPage = () => {
           error={error}
         />
       </div>
-
-      <div className="w-1/2 p-8 bg-gray-50">
+      <div className="w-1/3 p-8 bg-gray-50 border-l">
+        {/* <div className="w-1/2 p-8 bg-gray-50"> */}
         <InputPlayground
           currentField={currentField}
           setCurrentField={setCurrentField}
