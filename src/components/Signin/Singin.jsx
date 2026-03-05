@@ -9,11 +9,9 @@ export const Signin = ({ handleSignin, currentField, setCurrentField }) => {
   const [nameField, setNameField] = useState("");
 
   useEffect(() => {
-    console.log("Компонент загрузился один раз");
+    console.log("component has loaded once!");
     setCurrentField(inputsConfig.email);
     setNameField("email");
-    // например:
-    // setInputConfig(INPUTS_CONFIG);
   }, []);
 
   useEffect(() => {
@@ -34,7 +32,7 @@ export const Signin = ({ handleSignin, currentField, setCurrentField }) => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-100 px-4">
+    <div>
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 space-y-5"
@@ -42,6 +40,7 @@ export const Signin = ({ handleSignin, currentField, setCurrentField }) => {
         <h2 className="text-2xl font-semibold text-gray-800 text-center">
           Enter
         </h2>
+
         <TextInput
           label={inputsConfig.email.label}
           description={inputsConfig.email.description}
@@ -52,7 +51,6 @@ export const Signin = ({ handleSignin, currentField, setCurrentField }) => {
           error={inputsConfig.email.error}
           type={inputsConfig.email.type}
           placeholder={inputsConfig.email.placeholder}
-          value={email}
           onFocus={() => {
             setCurrentField(inputsConfig.email);
             setNameField("email");
@@ -70,7 +68,6 @@ export const Signin = ({ handleSignin, currentField, setCurrentField }) => {
           error={inputsConfig.password.error}
           type={inputsConfig.password.type}
           placeholder={inputsConfig.password.placeholder}
-          value={password}
           onFocus={() => {
             setCurrentField(inputsConfig.password);
             setNameField("password");

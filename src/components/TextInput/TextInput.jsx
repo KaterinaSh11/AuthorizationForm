@@ -9,7 +9,9 @@ export const TextInput = ({
   radius = "md",
   variant = "default",
   rightSection,
+  icon,
   id: externalId,
+  nameInput,
   ...props
 }) => {
   const internalId = useId();
@@ -52,32 +54,26 @@ export const TextInput = ({
       )}
 
       {description && (
-        <div
-          id={id}
-          className="text-xs text-gray-500 mb-1"
-        >
+        <div id={id} className="text-xs text-gray-500 mb-1">
           {description}
         </div>
       )}
 
       <div
-        className={`
-          flex items-center
-          ${sizeClasses[size]}
-          ${radiusClasses[radius]}
-          ${variantClasses[variant]}
-          ${error ? "border-red-500" : ""}
-        `}
+        className={`relative flex items-center ${sizeClasses[size]} ${radiusClasses[radius]} ${variantClasses[variant]} ${error ? "border-red-500" : ""}`}
       >
+        {icon && (
+          <span className="absolute left-3 text-gray-400 flex items-center">
+            {icon}
+          </span>
+        )}
+
         <input
           id={id}
-          className="flex-1 bg-transparent outline-none"
+          className={`flex-1 bg-transparent outline-none ${icon ? "pl-8" : ""}`}
           {...props}
         />
-
-        {rightSection && <span className="ml-2 flex-none">{rightSection}</span>}
       </div>
-
       {error && (
         <div id={errorId} className="mt-1 text-xs text-red-500">
           {error}
