@@ -1,4 +1,4 @@
 export * from './Signin/Singin';
 export * from './Signup/Signup';
-export * from './Input/Input';
+export * from './TextInput/TextInput';
 export * from './InputPlayground/InputPlayground';
