@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { INPUTS_CONFIG } from "./constants";
 import { TextInput } from "../";
 
-export const Signin = ({ handleSignin, currentField, setCurrentField }) => {
+export const Signin = ({ onSubmit, currentField, setCurrentField }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [inputsConfig, setInputConfig] = useState(INPUTS_CONFIG);
@@ -28,7 +28,7 @@ export const Signin = ({ handleSignin, currentField, setCurrentField }) => {
 
     const data = { email, password };
 
-    handleSignin(data);
+    onSubmit(data);
   }
 
   return (

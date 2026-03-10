@@ -3,7 +3,7 @@ import { INPUTS_CONFIG } from "./constants";
 import { TextInput } from "../TextInput/TextInput";
 import { IconAt } from "@tabler/icons-react";
 
-export const Signup = ({ handleSignup, currentField, setCurrentField }) => {
+export const Signup = ({ onSubmit, currentField, setCurrentField }) => {
   const [name, setName] = useState("");
   const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
@@ -45,7 +45,7 @@ export const Signup = ({ handleSignup, currentField, setCurrentField }) => {
 
     const data = { name, nickname, email, password, confirmPassword, gender };
 
-    handleSignup(data);
+    onSubmit(data);
   }
 
   return (
